@@ -86,128 +86,130 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-      body: Form(
-        key: _formKey,
-        child: Container(
-          color: Colors.white,
-          child: Column(
-            children: <Widget>[
-              Center(
-                child: Padding(
-                  padding: EdgeInsets.only(
-                    top: 30.0,
-                  ),
-                  child: Icon(
-                    Icons.local_gas_station,
-                    color: Color(0xFF616161),
-                    size: 120.0,
+      body: SingleChildScrollView(
+        child: Form(
+          key: _formKey,
+          child: Container(
+            color: Colors.white,
+            child: Column(
+              children: <Widget>[
+                Center(
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      top: 30.0,
+                    ),
+                    child: Icon(
+                      Icons.local_gas_station,
+                      color: Color(0xFF616161),
+                      size: 120.0,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                width: 500.0,
-                child: TextFormField(
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    labelText: "Valor da Gasolina (Reais):",
-                  ),
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize: 25.0,
-                  ),
-                  controller: gasolinaController,
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return "Informe o Valor da Gasolina";
-                    } else
-                      return null;
-                  },
-                ),
-              ),
-              Container(
-                width: 500.0,
-                child: TextFormField(
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    labelText: "Valor do Etanol (Reais):",
-                  ),
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize: 25.0,
-                  ),
-                  controller: etanolController,
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return "Informe o Valor da Gasolina";
-                    } else
-                      return null;
-                  },
-                ),
-              ),
-              Container(
-                width: 500.0,
-                child: TextFormField(
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    labelText: "Tanque Combustivel(litros):",
-                  ),
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize: 25.0,
-                  ),
-                  controller: tanqueCombustivelController,
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return "Informe a Capacidade do Tanque de Combustível";
-                    } else
-                      return null;
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: 10.0,
-                  bottom: 5.0,
-                ),
-                child: RaisedButton(
-                  onPressed: () {
-                    if (_formKey.currentState.validate()) {
-                      _calcular();
-                    }
-                  },
-                  color: Colors.pink,
-                  child: Text(
-                    'Calcular',
+                Container(
+                  width: 500.0,
+                  child: TextFormField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      labelText: "Valor da Gasolina (Reais):",
+                    ),
+                    textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24.0,
+                      fontSize: 25.0,
                     ),
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                      20.0,
-                    ),
-                    side: BorderSide(
-                      color: Colors.black,
-                    ),
+                    controller: gasolinaController,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return "Informe o Valor da Gasolina";
+                      } else
+                        return null;
+                    },
                   ),
                 ),
-              ),
-              Text(
-                "$_msg1",
-                style: TextStyle(
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.bold,
+                Container(
+                  width: 500.0,
+                  child: TextFormField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      labelText: "Valor do Etanol (Reais):",
+                    ),
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 25.0,
+                    ),
+                    controller: etanolController,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return "Informe o Valor da Gasolina";
+                      } else
+                        return null;
+                    },
+                  ),
                 ),
-              ),
-              Text(
-                "$_msg2",
-                style: TextStyle(
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.bold,
+                Container(
+                  width: 500.0,
+                  child: TextFormField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      labelText: "Tanque Combustivel(litros):",
+                    ),
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 25.0,
+                    ),
+                    controller: tanqueCombustivelController,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return "Informe a Capacidade do Tanque de Combustível";
+                      } else
+                        return null;
+                    },
+                  ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: 10.0,
+                    bottom: 5.0,
+                  ),
+                  child: RaisedButton(
+                    onPressed: () {
+                      if (_formKey.currentState.validate()) {
+                        _calcular();
+                      }
+                    },
+                    color: Colors.pink,
+                    child: Text(
+                      'Calcular',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24.0,
+                      ),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                        20.0,
+                      ),
+                      side: BorderSide(
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ),
+                Text(
+                  "$_msg1",
+                  style: TextStyle(
+                    fontSize: 25.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "$_msg2",
+                  style: TextStyle(
+                    fontSize: 25.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
